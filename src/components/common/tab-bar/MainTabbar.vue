@@ -1,6 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
     <Tabbar>
       <TabbarItem path="/home" activeColor="blue">
         <div class="fa fa-home" slot="tab-icon"></div>
@@ -39,5 +38,6 @@ export default {
 </script>
 
 <style>
-
+/* @import "../../../assets/css/base.css"; */
+@import "../../../assets/css/font-awesome-4.7.0/css/font-awesome.min.css";
 </style>

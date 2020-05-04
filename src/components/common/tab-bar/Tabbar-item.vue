@@ -1,12 +1,9 @@
 <template>
       <div class="tab-list" @click="listClick" :class="{active:isActive}">
-        <!-- 不要在slot标签上直接写v-.... slot标签加载时会消失 可以包裹一个div-->
         <div v-if="!isActive"><slot name="tab-icon"></slot></div>
         <div v-else><slot name="tab-icon-active"></slot></div><!-- 点击时替换的插槽 -->
         <div :style="styleColor"><slot name="tab-text"></slot></div>
-        
       </div>
-      
 </template>
 
 <script>
@@ -14,14 +11,12 @@ export default {
   name:"Tabbar-item",
   data(){
     return {
-      // isActive:true
+     
     }
   },
   computed:{
-    // 这里可以写函数
     isActive(){
       return this.$route.path.indexOf(this.path)!=-1
-      // 当前活跃的路由的路径
     },
     styleColor(){
       return this.isActive?{color:this.activeColor}:{}
@@ -31,7 +26,7 @@ export default {
     path:String,
     activeColor:{
       type:String,
-      default:'red'// 默认红色
+      default:'red'
     }
   },
   methods:{
