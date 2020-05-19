@@ -23,7 +23,7 @@ import Navbar from '../../components/common/nav-bar/Navbar'
 import TabControl from '../../components/content/tabControl/TabControl'
 import GoodList from '../../components/content/goods/GoodList'
 import BetterScroll from '../../components/common/better-scroll/BetterScroll'
-import BackTop from '../../components/content/backTop/BackTop'
+import {backTopMixin} from '../../commont/mixin'
 
 
 // home的私有子组件
@@ -49,6 +49,7 @@ export default {
       isTabFixed:false
     }
   },
+  mixins:[backTopMixin],
   components:{
     Navbar,
     HomeSwiper,
@@ -56,8 +57,7 @@ export default {
     HomePopular,
     TabControl,
     GoodList,
-    BetterScroll,
-    BackTop
+    BetterScroll
   },
   created(){
    this.getHomeMultidata()
@@ -103,13 +103,9 @@ export default {
       // }else{
       //   this.isShowTop=false
       // }
-      this.isShowTop= position.y < -800
       this.isTabFixed= position.y < -704
+      this.getBackTopShow(position)
 
-    },
-    backtop(){
-      //$refs访问ref属性的组件 
-      this.$refs.scroll.bs.scrollTo(0,0,3000)  //scrollTo(x,y,时间) 移动到
     },
     loadMore(){
       this.getHomeGoods(this.currentType)
@@ -118,7 +114,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #home{
   height: 100vh;  /* height: 100vh整个页面的高 */
 }

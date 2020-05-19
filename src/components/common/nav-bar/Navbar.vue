@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .nav-bar{
   width: 100%;
   display: flex;

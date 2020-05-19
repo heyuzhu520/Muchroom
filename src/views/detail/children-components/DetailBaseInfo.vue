@@ -1,5 +1,6 @@
 <template>
   <div class="base-info" v-if="Object.keys(goodsinfo).length!=0">
+                        <!-- v-if="Object.keys(goodsinfo).length!=0"  解决报错 -->
     <!-- 标题 -->
     <div>{{goodsinfo.title}}</div>
     <!-- 价格 -->

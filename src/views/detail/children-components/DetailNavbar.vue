@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-bar">
     <Narbar>
       <div slot="left" class="back-image" @click='backHome'>
         <img src="../../../assets/img/common/back.svg">
@@ -29,6 +29,7 @@ export default {
   methods:{
     itemClick(index){
       this.currentIndex=index
+      this.$emit('titleClick',index)
     },
     backHome(){
       this.$router.back() 
@@ -38,7 +39,9 @@ export default {
 </script>
 
 <style>
-
+.nav-bar{
+  background: #fff;
+}
 .title{
   display: flex;
 }
